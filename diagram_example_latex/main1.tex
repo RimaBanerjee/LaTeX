@@ -1,0 +1,33 @@
+\documentclass{article}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows, positioning}
+
+
+\begin{document}
+
+\section{Drawing the figures}
+
+\begin{tikzpicture}[-latex,node distance =7 cm] %to increase size of pigure ......node distance 2 means the vertical distance and the horizontal distance both are 2cm,  But if i write [node distance=3cm and 5cm] means first one is always vertical, so the vertical distance is 3cm, and the horizontal distance is 5cm,
+\centering
+\tikzstyle{every node}=[font=\huge]	
+
+\node[circle,draw](a){1}; %()this is label,,label name is whatever you wish, whatever written in figure, place in between {}them
+\node[circle,draw](b)[right=of a]{2}; %Here 2 is right of 1,
+\node[circle,draw](c)[below=of a]{3}; %Here 3 is below of 1,
+
+\path(a)edge[loop above](a); %how you can define the self loop? so always use path..here 1 is denoted as lbel a so this loop starts from the a that is 1... ending at the one again, so that means start from the a, ending at a, here this is a loop and its bending so thats why  edge loop above.
+\path(b)edge[loop above](b);
+\path(c)edge[loop below](c); 
+%\draw[->](a)--(b) %How we can define straight line means ->  ? We can use the command draw,here start from 1, so starting point is a, and ending point is 2, and ending point is denoted as b. 
+\draw[->](a)--node[above=0.15cm]{2/3}(b);%but i want 2/3 above that line so.... i have to write something in between them,
+\draw[->](a)--node[left=0.15cm]{1/4}(c);
+\draw[->](b)--(c);
+
+
+\end{tikzpicture}
+
+
+\end{document}
+
+
